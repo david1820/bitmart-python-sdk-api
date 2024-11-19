@@ -99,7 +99,7 @@ class SpotSocketClient:
 
         if self.reconnectionUseLogin:
             event = message_data.get("event")
-            error_message = message_data.get("errorMessage")
+            error_message = message_data.get("errorMessage", "")
             if event == "login" and error_message != "":
                 self.logger.error(f"Spot WebSocket Client Stop Reason=>{message_data}")
                 self.__close()
